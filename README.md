@@ -34,5 +34,5 @@ Pre-configured database models and entities are located at the following path wi
 
 Refer to these models when performing queries or extending the database schema.
 
-## Licence
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
