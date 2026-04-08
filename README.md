@@ -1,5 +1,7 @@
 # ServerDatabaseController
 
+A plugin implementation for the server that is dedicated to my beloved brother, **KeremPRO**.
+
 ServerDatabaseController is a core utility plugin designed to handle database connections and persistence layers for Minecraft server environments. By leveraging **Hibernate ORM**, it provides a robust and scalable way to manage data without writing boilerplate SQL.
 
 ## Features
