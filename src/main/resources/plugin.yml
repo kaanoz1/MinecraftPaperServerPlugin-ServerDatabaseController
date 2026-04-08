@@ -1,0 +1,6 @@
+name: ServerDatabaseController
+version: '$version'
+
+main: org.prag.mc.plugins.serverDatabaseController.ServerDatabaseController
+api-version: '1.21.11'
+load: POSTWORLD
