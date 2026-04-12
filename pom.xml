@@ -6,7 +6,7 @@
 
     <groupId>org.prag.mc.plugins</groupId>
     <artifactId>Prag.ServerDatabaseController</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>Prag.ServerDatabaseController</name>
@@ -79,6 +79,12 @@
         <dependency>
             <groupId>jakarta.transaction</groupId>
             <artifactId>jakarta.transaction-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

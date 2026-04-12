@@ -1,6 +1,7 @@
 package org.prag.mc.plugins.serverDatabaseController.Models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.prag.mc.plugins.serverDatabaseController.Auth.PlayerRegisterOptions;
 import org.prag.mc.plugins.serverDatabaseController.Exceptions.Auth.AlreadyRegisteredException;
 import org.prag.mc.plugins.serverDatabaseController.Exceptions.Auth.NotRegisteredYet;
@@ -13,18 +14,16 @@ import java.util.UUID;
 @Table(name = "players")
 public class RecordedPlayer {
 
+    @Getter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
-    private long id;
-
     @Column(name = "uuid", unique = true, nullable = false, updatable = false)
     private UUID uuid;
 
+    @Getter
     @Column(name = "nickname", unique = true, nullable = false)
     private String nickname;
 
-    @Column(name = "password", nullable = true)
+    @Column(name = "password")
     private String password;
 
     @Column(name = "created_at", updatable = false)
@@ -52,7 +51,6 @@ public class RecordedPlayer {
     protected void onCreate() {
         if (this.createdAt == null)
             this.createdAt = LocalDateTime.now(ZoneOffset.UTC);
-
     }
 
     public void register(PlayerRegisterOptions options) {
@@ -75,7 +73,6 @@ public class RecordedPlayer {
         this.passwordUpdatedAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 
-
     public boolean isPasswordCorrect(String inputPassword) throws NotRegisteredYet {
         if (!isRegistered())
             throw new NotRegisteredYet(this);
@@ -91,35 +88,4 @@ public class RecordedPlayer {
         return this.password != null && !this.password.isEmpty();
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getRegisteredAt() {
-        return registeredAt;
-    }
-
-    public LocalDateTime getLastLoggedInAt() {
-        return lastLoggedInAt;
-    }
-
-    public LocalDateTime getPasswordUpdatedAt() {
-        return passwordUpdatedAt;
-    }
 }
